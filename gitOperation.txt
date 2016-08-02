@@ -1,0 +1,19 @@
+git add  将工作区文件添加到暂存区
+git commit -m '提交描述'   将暂存区文件提交到仓库
+git config --global user.name '**'   设置用户名
+git config --global user.email '**'   设置用户邮箱
+git config --list 查看属性
+mkdir test  创建文件
+cd ***   进入某个文件夹
+git init 初始化git 
+pwd查看当前文件位置
+touch program.c 创建文件
+clear 清屏
+git status 查看文件状态
+ls  显示当前文件内容
+vi 编辑文件
+cat 查看文件内容
+git clone 克隆项目
+git push 添加到远程仓库
+:wq 退出对文件的编辑
+
