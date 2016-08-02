@@ -1,0 +1,87 @@
+
+pckage gameTry;
+
+public class forEach {
+	
+		public static void main(String[] args)
+			{
+						Person[] persons=new Person[5]; //只是创建了5个Person对象的数组
+									//但是没有当Person对象，默认值为null
+												/*
+															persons[0]=new Person();
+																		persons[3]=new Person();
+																					*/
+																								/*
+																											for(int i=0;i<persons.length;i++)
+																														{
+																																		persons[i]=new Person();
+																																					}*/
+																																								/*
+																																											for(Person p:persons)   //只是把值赋值给p，本身并没有赋值，无意义
+																																														{
+																																																		p=new Person();
+																																																					}
+																																																								*/
+																																																											
+																																																														/*
+																																																																	for(int i=0;i<persons.length;i++)
+																																																																				{
+																																																																								Person p=persons[i];
+																																																																												System.out.println(p);
+																																																																															}*/
+																																																																																		//增强for循环一般用于使用数组每个元素，不适合给数组赋值
+																																																																																					//增强for循环，遍历persons数组中的每个元素，每次遍历的元素用p代替
+																																																																																							  for(Person p:persons)
+																																																																																							  		  {
+																																																																																									  			  System.out.println(p);
+																																																																																												  		  }
+																																																																																														  	}
+																																																																																															}
+																																																																																															
+																																																																																															class Person
+																																																																																															{
+																																																																																																
+																																																																																																}
+																																																																																																ackage gameTry;
+
+public class forEach {
+	
+	public static void main(String[] args)
+	{
+			Person[] persons=new Person[5]; //只是创建了5个Person对象的数组
+			//但是没有当Person对象，默认值为null
+			/*
+			persons[0]=new Person();
+			persons[3]=new Person();
+			*/
+			/*
+			for(int i=0;i<persons.length;i++)
+			{
+				persons[i]=new Person();
+			}*/
+			/*
+			for(Person p:persons)   //只是把值赋值给p，本身并没有赋值，无意义
+			{
+				p=new Person();
+			}
+			*/
+			
+			/*
+			for(int i=0;i<persons.length;i++)
+			{
+				Person p=persons[i];
+				System.out.println(p);
+			}*/
+			//增强for循环一般用于使用数组每个元素，不适合给数组赋值
+			//增强for循环，遍历persons数组中的每个元素，每次遍历的元素用p代替
+		  for(Person p:persons)
+		  {
+			  System.out.println(p);
+		  }
+	}
+}
+
+class Person
+{
+	
+}
