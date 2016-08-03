@@ -1,0 +1,137 @@
+package DuoTai;
+
+	public class test
+	{
+			public static void main(String[] args)
+			{
+					Man m1=new Man();
+				   m1.Speak();
+				   System.out.println("指向对象为:"+m1.getClass());   //获得指向m1对象类型
+				   Object o1=m1;
+				   System.out.println(o1.getClass());  //同时指向地球人
+				   
+				   Chinese c1=new Chinese();
+				   c1.Speak();
+				   System.out.println("指向对象为:"+c1.getClass());
+				   Chinese c2=new Chinese(){};
+				   System.out.println("中国人匿名类为"+c2);
+									   
+				   //class test$1 extends Man{};
+				   //定义一个Man人的人类匿名类，并且创建一个他的对象
+				   //编译器自动生成一个类继承自Man
+				   Man m2=new Man()  {};
+				   m2.Speak();
+				   System.out.println("地球人匿名类为"+m2.getClass());    //m2指向的对象是test$1类型
+			}
+	}
+
+
+
+
+
+package DuoTai;
+
+	public class test      
+	{
+			public static void main(String[] args)
+			{
+				Man m1=new Man(){   //变量为父类
+				private int age;	
+				@Override
+				public void Speak()
+				{
+					System.out.println("我是地球人的一个匿名的孩子");
+				}
+				public void setAge(int age)
+				{
+						this.age=age;
+				}
+				
+			};    //注意，匿名类括号后需要加分号！！！
+				
+				m1.Speak();
+				//m1.setAge(2);
+				//因为使用匿名类对象的时候，变量类型都是父类，所以无法调用
+				//一般不再匿名类中声明新方法
+			}
+	}
+	
+	
+	
+package DuoTai;
+
+	public class test      
+	{
+			
+			public static void main(String[] args)
+			{
+					//匿名内部类中访问外部方法中的局部变量时，局部变量必须声明为final
+				       final int age=23;
+				       final String s="We love China";
+						Man m1=new Man(){
+						
+							@Override
+							public void Speak()
+							{
+								System.out.println("我是匿名者,and our age is "+age+s);
+							}
+						};
+						//从反编译得知，其实从原理上来讲，并不是匿名类中访问了局部变量
+						//而是匿名类中定义了成员变量和有参构造函数
+						//局部变量是以调用构造函数的参数形式传递的
+						m1.Speak();
+						/*   局部变量内部原理
+						class 匿名类 extends Man
+						{
+							int  val$i;
+							int val$s;
+							匿名类构造函数名(int paramInt,String paramString)
+							{
+								this.val$i=paramInt;
+								this.val$s=paramString;
+							}
+							public void Speak()
+							{
+								System.out.println("我是匿名者"+this.val$i+this.val$i.val$s);
+							}
+						}
+						Man m1=new 匿名者类（i,s）;
+						*/
+			}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
