@@ -1,0 +1,82 @@
+package DuoTai;
+
+	public class test      
+	{
+			
+			public static void main(String[] args)
+			{
+					test t=new test();
+					t.setAge(343);
+					t.f1();
+			}
+			private int age;
+			public int getAge()
+			{
+				return this.age;
+			}
+			public void setAge(int age)
+			{
+				this.age=age;
+			}
+			public void f1()
+			{
+				
+				Man m1=new Man(){
+					private int age=333;    //如果没有这个声明则默认调用class test 的参数
+					@Override
+					public void Speak()
+					{	
+								int age=555;
+								System.out.println("我的年龄是"+this.age);
+								//当匿名类中没有声明成员变量时，this.age编译无法通                                                               							 过
+								//因为匿名类中没有age成员，无法引用
+								//System.out.println("我的年龄是:"+test.this.age);
+								//在匿名类中，当成员名冲突时，访问外部类时需要使用                                                               							‘外部类的类名.this’
+								//进行访问
+					}
+				};
+				m1.Speak();
+			}
+	}
+	
+	
+	
+	
+/类只能实现一个父类，类可以实现多个接口
+//接口中可以且仅可以定义抽象方法，抽象类中可以定义抽象方法，也可以
+//定义非抽象方法
+public interface hadable extends Speakable,Eatable{
+
+				public void haha();  不能实现方法   
+	
+}
+//接口成员必须是静态的，而且必须是public  private成员没有意义
+//	public static int age=3;
+//一个接口可以继承多个接口，且必须实现所有方法！！
+//public interface hadable extends Speakable,Eatable{
+//接口类型的变量指向实现了这个接口的类的对象
+/*	可以进行强制转换	
+Speakable s=new Chinese();
+		s.cry();
+		Chinese c=(Chinese)s;
+		c.haha();
+		Eatable e=(Eatable)s;
+		e.eat();
+		hadable h=(hadable)s;
+		h.haha();
+*/	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
