@@ -1,0 +1,100 @@
+package designeMode;
+
+	public interface Flyable
+	{
+		public void fly();
+	}
+
+
+package designeMode;
+
+public class airPlane implements Flyable{
+	
+	
+    @Override
+    public void fly()
+    {
+    			System.out.println("airPlane Fly");
+    }
+    public void zhuolu()
+    {
+    	System.out.println("Please take atention,we are goning to be on the ground");
+    }
+
+}
+
+
+
+package designeMode;
+
+public class bird implements Flyable{
+	
+	@Override
+	public void fly()
+	{
+		System.out.println("Small bird Fly");
+	}
+	
+}
+
+
+package designeMode;
+
+public class FlyChecker implements Flyable{
+	
+	private Flyable dest;
+	public FlyChecker(Flyable dest)  //构造函数     //任何继承Flyable接口的类可以作为传入参数
+	{
+		this.dest=dest;
+	}
+	
+	@Override
+	public void fly()
+	{
+		System.out.println("check the Fly");
+		if(System.currentTimeMillis()%2==0)
+		{
+					this.dest.fly();
+		}
+		else
+		{
+				System.out.println("现在条件不适合起飞");
+		}
+	}
+
+}
+
+
+package designeMode;
+
+public class test {
+
+	public static void main(String[] args)
+	{
+			Flyable f1=createFlyable(1);//指向创建的对象  //返回FlyChecker的对象类型
+			f1.fly();
+			Flyable f2=createFlyable(6);
+			f2.fly();   //只能调用Flyable变量函数
+		//	f2.zhuolu();
+	}
+	
+	//工厂模式
+	static Flyable createFlyable(int i)
+	{
+			Flyable dest;
+			if(i%2==0)
+			{
+					dest=new bird();
+			}
+			else
+			{
+					dest=new airPlane();
+			}
+			return new FlyChecker(dest);       //属于Flyable接口的继承类,实现Flyable接口
+	}
+}
+
+
+
+
+
