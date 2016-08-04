@@ -1,0 +1,56 @@
+package designeMode;
+
+public class test {
+	
+	
+	private int age=4;
+	public void f1()
+	{
+		Flyable f1=new Flyable(){
+		  int age=44;
+			@Override
+			public void fly()
+			{
+						System.out.println("f1匿名类:"+this.age);
+			}
+			
+		};
+		f1.fly();
+	}
+
+	public static void main(String[] args)
+	{
+			test t=new test();
+			t.f1();
+	}
+
+
+
+public class charSize {
+
+	public static void main(String[] args)
+	{
+		char c1='a';
+		System.out.println((int)c1);  //'a'在计算机中使用正数97表示
+		
+		char c2='1';
+		System.out.println((int)c2);//'1'在计算机中使用数字49表示
+		
+		System.out.println(1=='1');   //false
+		System.out.println('1'==49);
+		
+		int i1=33;
+		char c3=(char)i1;
+		System.out.println(c3);    //'!'
+		
+		System.out.println('a'>'A'); //小写比大写大
+		
+	}
+	
+}
+
+
+
+
+
+
