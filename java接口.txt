@@ -1,0 +1,58 @@
+package jiekou;
+
+//接口用关键词interface
+public interface Speakable {
+
+    public void Speak(String name);
+    public void cry(); 
+	
+}
+
+
+package jiekou;
+
+//extends继承
+//接口约束了类必须实现什么方法!!!!!!!
+public abstract class earthMan implements Speakable{    //类earthMan实现Speakable接口
+
+	public void Speak(String n)
+	{
+		System.out.println("我是地球人，我的名字是:"+n);
+	}
+	/*
+	public void cry()
+	{
+			System.out.println("Cry Cry  Cry!!");
+	}
+	*/
+}
+
+package jiekou;
+
+public class Chinese extends earthMan{  //父债子尝
+	
+	public void cry()
+	{
+			System.out.println("abstract cry out");
+	}
+
+}
+
+
+package jiekou;
+
+public class test {
+			
+	public static void main(String[] args)
+	{
+		//Speakable s=new Speakable();
+		//无法创建接口对象！！！！！
+		earthMan e=new   Chinese();          //earthMan();     //抽象类不能new
+		e.cry();
+		e.Speak("刘焕濠");
+	}
+}
+
+
+
+
