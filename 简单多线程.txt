@@ -1,0 +1,120 @@
+package gameTry;
+import com.rupeng.game.GameCore;
+import java.awt.event.KeyEvent;
+public class testGame implements Runnable{
+	
+	public static void main(String[] args)
+	{
+		GameCore.start(new testGame());
+	}
+	public void run()
+	{	
+		/**
+		 * 副线程
+		 */
+		GameCore.asyncRun(new Runnable(){
+			
+			@Override
+			public void run()
+			{
+				gameSprite sprite2=new gameSprite("guizi");
+				sprite2.playAnimate("run");
+				sprite2.setPosition(400, 300);
+				while(true)
+				{
+					for(int i=0;i<300;i++)
+					{
+						sprite2.moveLeft();
+					}
+					for(int i=0;i<300;i++)
+					{
+						sprite2.moveRight();
+					}
+				}
+			}
+			
+		});
+		gameSprite sprite1=new gameSprite("mario");
+		sprite1.playAnimate("walk");
+		sprite1.setFlipX(true);
+		sprite1.setPosition(200, 300);
+		
+		while(true)
+		{
+			   int keyCode=GameCore.getPressedKeyCode();
+			   switch(keyCode)
+			   {
+			   case KeyEvent.VK_LEFT:
+				   sprite1.setFlipX(false);
+				   sprite1.moveLeft();
+				   break;
+			   case KeyEvent.VK_RIGHT:
+				   sprite1.setFlipX(true);
+				   sprite1.moveRight();
+				   break;
+			   case KeyEvent.VK_UP:
+				   sprite1.moveUp();
+				   break;
+			   case KeyEvent.VK_DOWN:
+				   sprite1.moveDown();
+				   break;
+			   }
+		}
+	}
+
+}
+
+
+
+/**************************************************************/
+
+
+
+GameCore.asyncRun(new Runnable(){     //new一个Runnable子类
+			
+			@Override
+			public void run()
+			{
+				gameSprite sprite2=new gameSprite("guizi");
+				sprite2.playAnimate("run");
+				sprite2.setPosition(400, 300);
+				while(true)
+				{
+							int randNum=GameCore.rand(0, 4);
+							for(int i=0;i<100;i++)
+							{
+							
+								switch(randNum)
+								{
+								case 0:
+									sprite2.setFlipX(true);
+									sprite2.moveLeft();
+									break;
+								case 1:
+									sprite2.setFlipX(false);
+									sprite2.moveRight();
+									break;
+								case 2:
+									sprite2.moveUp();
+									break;
+								case 3:
+									sprite2.moveDown();
+									break;
+									default:
+										break;
+								}
+								if(sprite2.isIntersectWith(sprite1))
+								{
+									sprite1.playAnimate("shuaidao");
+								}
+								GameCore.pause(5);
+							}
+				}
+			}
+
+
+
+
+
+
+
