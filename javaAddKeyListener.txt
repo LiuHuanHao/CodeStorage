@@ -1,0 +1,95 @@
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;      //需要导入KeyListener
+public class testGame implements Runnable{
+	
+	public static void main(String[] args)
+	{
+		GameCore.start(new testGame());
+	}
+	public void run()
+	{	
+		
+				GameCore.addKeyListener(new KeyListener(){        //keyListener的匿名类
+					
+					@Override
+					public void keyTyped(KeyEvent e)
+					{
+								//System.out.println("keyTyped");
+					}
+					@Override
+					public void keyPressed(KeyEvent e)
+					{
+								//System.out.println("keyPressed");
+					}
+					@Override
+					public void keyReleased(KeyEvent e)
+					{
+							System.out.println("keyChar"+e.getKeyChar());
+							System.out.println("keyCode"+e.getKeyCode());
+							System.out.println("keyReleased");
+					}
+				});
+				/*
+				this.kl>>>>
+				KeyEvent e=new KeyEvent();
+				e.setKeyCode(读取键盘码);
+				this.kl.keyReleased(e);
+				告诉游戏引擎给你实现一个KeyListener接口类型对象，当
+				用户按键抬起的时候执行这个对象的keyReleased();
+				*/
+
+
+
+
+
+
+
+	GameCore.addKeyListener(new KeyListener() {
+				
+				
+				
+				@Override
+				public void keyReleased(KeyEvent e)
+				{
+					 if(e.getKeyCode()==KeyEvent.VK_J)
+					{
+						
+									System.out.println("异步程序开始");
+									GameCore.asyncRun(new Runnable(){
+										gameSprite bomb=new gameSprite("bomb");
+										public void run()
+										{
+										System.out.println("炸弹开始飞");
+										Point marioPos=mario.getPosition();
+										bomb.setPosition(marioPos.x, marioPos.y);
+										bomb.playAnimate("laser");
+										for(int i=0;i<200;i++)
+										{
+												bomb.moveUp();
+												GameCore.pause(3);
+										}
+										System.out.println("炸弹飞完了");
+										}
+										
+									});
+									System.out.println("异步程序执行结束");
+								
+					}
+				}
+				
+				@Override
+				public void keyPressed(KeyEvent e)            //需要实现接口其它方法，在这里为空
+				{
+					
+				}
+
+				@Override
+				public void keyTyped(KeyEvent e)
+				{
+					
+				}
+				
+				});
+			
+		
