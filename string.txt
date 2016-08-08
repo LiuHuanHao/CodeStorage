@@ -1,0 +1,27 @@
+如果两个字符串内容完全相等，则返回零
+如果第一字符与另一个字符串的第一个字符不相等，则返回他们第一个字符的差
+如果第一个字符相等，则返回第二个字符的差
+一直比较到最后不相等为止
+如果比较完一个，另一个还剩一点，则差为两个字符串长度只差
+
+
+
+public class testString {
+	
+		public static void main(String[] args)
+		{
+			//看起来String s1="abc"没有new，但是其实有new
+			String s1="abc";//在内存中创建字符串对象，内容是“abc”,把s1指向这个字符串对象
+			String s2="abc";//发现已经有“abc”字符串对象了，因此把s2直接指向之前的"abc"
+			System.out.println(s1==s2);
+			System.out.println(s1.equals(s2));
+			
+			//new String创建一个和"abc"内容一样的新字符对象
+			String s4=new String("abc");  //只要new就是创建了一个新对象
+			System.out.println(s1==s4);
+			System.out.println(s1.equals(s4));
+			
+			//==永远都是用来比较两边是否指向同一对象
+			//equal则是用来进行内容的比较
+		}
+}
