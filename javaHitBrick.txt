@@ -1,0 +1,159 @@
+package gameTry;
+import com.rupeng.game.GameCore;
+import java.awt.event.KeyEvent;
+import java.awt.Point;
+public class hitBricks implements Runnable{
+	
+	public static void main(String[] args)
+	{
+			GameCore.start(new hitBricks());    
+	}
+	public void run()
+	{
+			gameImage imgBoard=new gameImage("brick.png");
+			imgBoard.setPosition(400, 500);
+			gameImage imgMove=new gameImage("singledog.jpg");
+			imgMove.setPosition(100,400);
+			int moveVx=GameCore.rand(1, 3);
+			int moveVy=-1;
+			
+			brickInfo[][] bricks=new brickInfo[3][8];   //横十
+			for(int i=0;i<bricks.length;i++)
+			{
+					brickInfo[] brickRows=bricks[i];
+					for(int j=0;j<brickRows.length;j++)
+					{      
+							brickRows[j]=new brickInfo();
+							brickRows[j].setHasBrick(GameCore.rand(0, 2)==0);    //生成随机数，每次不相同
+					}
+			}
+			for(int i=0;i<bricks.length;i++)
+			{
+				brickInfo[] brickRows=bricks[i];
+				for(int j=0;j<brickRows.length;j++)
+				{
+						brickInfo brickInfo=brickRows[j];
+						if(brickInfo.isHasBrick())
+						{
+								gameImage imgBrick=new gameImage("haiyi.jpg");
+								imgBrick.setPosition(j*100, i*80);    //j是关于x轴的
+								brickInfo.setImgBrick(imgBrick);
+								//System.out.println(bricks[i][j]);   此刻数据已经被写进去了
+						}
+				}
+			}
+			
+			
+			GameCore.playSound("oaoa.mp3", true);
+			
+			while(true) 
+			{
+				
+					int keyCode=GameCore.getPressedKeyCode();
+					if(keyCode==KeyEvent.VK_LEFT&&imgBoard.getPosition().x>0)
+					{
+						imgBoard.moveLeft(3);   //注明那个对象的移动，运用重载，实现走几步
+					}
+					else if(keyCode==KeyEvent.VK_RIGHT&&imgBoard.getPosition().x+imgBoard.getSize().width<GameCore.getGameSize().width-10)
+					{
+						imgBoard.moveRight(3);
+					}
+					Point posMove=imgMove.getPosition();
+					int xMove=posMove.x;
+					int yMove=posMove.y;
+					xMove+=moveVx;
+					yMove+=moveVy;
+					imgMove.setPosition(xMove, yMove);
+			
+					if(xMove<=0)
+					{
+						moveVx=-moveVx;
+					}
+					
+					if(xMove>=GameCore.getGameSize().width-90)    //if后面加分号不会报错，注意！！！！！
+					{
+						moveVx=-moveVx; 
+					}
+					if(yMove<=0)
+					{
+						moveVy=-moveVy;
+					}
+					if(yMove>=GameCore.getGameSize().height-100)
+					{
+						GameCore.closeSound("oaoa.mp3");
+						GameCore.playSound("Green Day - Fuck Time [mqms2].mp3", false);
+						GameCore.alert("GameOver");
+						GameCore.pause(20000);
+					//	GameCore.exit();
+					}
+					for(brickInfo[] brickRow:bricks)    //你不是真正的快乐周杰伦
+					{
+						for(brickInfo brick:brickRow)
+						{
+							if(brick.isHasBrick()&&brick.isAlive()&&brick.getImgBrick().isIntersectWith(imgMove))   //三个条件
+							{
+								brick.setIsAlive(false);
+								brick.getImgBrick().hide();
+								GameCore.playSound("按键音2.mp3", false);
+								moveVy=-moveVy;
+							}
+						}
+					}
+					if(imgBoard.isIntersectWith(imgMove))
+					{
+							moveVy=-moveVy;
+							GameCore.playSound("按键音2.mp3", false);
+					}
+					
+			}     //你不是真正的快乐
+			
+	}
+	class brickInfo
+	{
+		private boolean hasBrick;    //这个位置是否有砖块
+		private boolean isAlive;    
+		private gameImage imgBrick;
+		
+		public  brickInfo()    //构造函数
+		{
+				this.isAlive=true;     //不需要在构造函数新建图片
+		}
+		public void setHasBrick(boolean hasBrick)
+		{
+			this.hasBrick=hasBrick;
+		}
+		public boolean isAlive()
+		{
+			return this.isAlive;
+		}
+		public boolean isHasBrick()
+		{
+			return this.hasBrick;
+		}
+		public void setIsAlive(boolean isAlive)
+		{
+			this.isAlive=isAlive;
+		}
+		public void setImgBrick(gameImage imgBrick)
+		{
+			this.imgBrick=imgBrick;
+		}
+		public gameImage getImgBrick()
+		{
+				return imgBrick;  
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
