@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" ">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>表格标签</title>
+ </head>
+ <!--  
+ tr:代表一行
+ td:代表一列
+ border:代表边框的厚度
+ align:代表表格的位置，而不是表格里面文字的位置	
+ cellspacing:单元格与单元格之间的距离
+ cellpadding:单元格与文字之间的距离
+ borderclordark:右下角颜色变化
+ bordercolorlight:左上角颜色变化
+ bgcolor(backGround):设置背景颜色     background:设置背景图片
+ 公有属性:dir->rtl,ltr  rtl:right to left  表示从*向*显示
+ valign:设置垂直位置
+ colspan:等于2时相当于合并两个列的单元格,但是不够智能，文字混合在一起
+ rowspan:等于2时相当于合并了两个行的单元格
+ th:相当于td加粗，放在顶格起强调作用
+ caption:设置标题
+ thead,tbody,tfoot:写了的话，代码顺序可以任意
+ 写了的话，表格内容多的情况下，可以边传输边显示，不写就是传输完毕再显示
+ -->
+ <body>
+		<p dir="ltr">你好</p>  <!-- 你好在右边显示 -->
+		<table dir="ltr" border="2", width="500" height="300" align="center" 
+		cellpadding="40" cellspacing="20"  bgcolor="##00ff99"               
+		bordercolordark="red" bordercolorlight=""   dir="rtl"
+ 		background="">
+		<caption align="left">信息</caption>
+
+
+		<tbody>
+		<tr>
+			<td  rowspan="1" bgcolor="">刘焕濠</td>
+			<td  bgcolor="">12岁</td>
+			<td>183cm</td>
+		</tr  >
+		</tbody>
+
+
+		<tfoot>
+		<tr>
+			<td>王瑜</td>
+			<td > 19岁</td>
+			<td>167cm</td>
+		</tr>
+		</tfoot>
+
+
+		<thead>
+		<tr>
+		<th>
+		姓名
+		</th>
+		<th>
+		年龄
+		</th>
+		<th>
+		身高
+		</th>
+		</tr>
+		</thead>
+
+
+		</table>
+ </body>
+</html>

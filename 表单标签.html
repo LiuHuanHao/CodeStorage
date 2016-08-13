@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>表单标签</title>
+ </head>
+ <body>
+ <!-- 
+ type:表示输入的类型。text:文本类型，password密码类型，hidden隐藏类型
+ size:表示输入的文字个数，而不是像素
+ readonly表示不能够进行读取，不能输入
+ disabled:表示不能进入文本框进行操作
+ name:限制在radio中同一个name名字下只能进行一种选择
+ value:表示传入电脑的值
+ checkbox:多选框，如爱好
+ fieldset:可以进行选择性的将一些相关信息圈起来，legend用来显示信息的标题
+ maxlength限制最大写入的个数
+ selected:默认显示的值
+ -->
+  <form action="字体标签.html" method="get">   <!-- action显示需要提交到的页面  -->
+		<fieldset>
+		  <legend>必填信息</legend>
+		姓名:<input type="text" value="请输入姓名" size="20" readonly ><br>
+		密码:<input type="password" value="I love you" maxlength="3" size="20" ><br>
+		隐藏框:<input type="hidden" value="" size="20"><br>
+		性别:<input type="radio" name="gender" value="male" checked>男<input type="radio" value="female" name="gender">女<br>
+		国籍:<input type="radio" name="country" value="America" checked>美国<input type="radio" value="China" name="country">
+		中国<input type="radio" name="country" value="United KingDom">英国<br>
+		爱好:<input type="checkbox" name="love" value="eat" checked>吃饭
+			 <input type="checkbox" name="love" value="sleep" checked>睡觉
+			 <input type="checkbox" name="love" value="game" checked> 打游戏<br>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend >选填信息</legend>
+		学历:
+		<select name="resume" multiple>  <!-- 加上multiple表示可以进行多选    -->
+				<option value="university">大学</option>
+				<option value="highSchool" selected>高中</option>
+				<option value="primarySchool">小学</option>
+		</select><br>
+		备注:
+		<textarea rows="10" cols="20">大神留点话吧</textarea>
+		    <!--  备注代码段不能加空格或换行，因为不会自动忽略  -->
+		</fieldset>
+		<input type="button" value="普通按钮" onclick="alert(this.type)">
+		<input type="submit" value="提交按钮">
+		<!-- submit按钮会把信息上传到form上头的action里面的HTML里面
+		有不同的method方式:
+		1.  get方式会把信息显示在网址后面，提交信息量少，且容易被人偷窃，不够安全
+		2.  post方式网址后面没有显示任何信息，与上面刚好相反
+		重置按钮只能在表单里面起作用
+		图片标签与提交按钮功能相同
+		-->
+		<input type="reset" value="重置按钮">
+		<input type="image" src="C:\Users\ASUS\Pictures\Saved Pictures/liu.jpg" width="100" height="100">
+  </form>
+  	<button onclick="alert('你是傻逼')">普通按钮</button>   <!-- 相当于提交按钮 -->
+ </body>
+</html>

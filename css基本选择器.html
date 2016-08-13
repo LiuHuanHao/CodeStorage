@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>css基本选择器</title>
+	<style type="text/css">
+	/*s
+			选择器: 1、基本选择器
+							a,标签选择器:就是选择了页面上一类标签
+							b,类选择器:规定用圆点.来定义,比标签选择器灵活
+							c,ID选择器:规定用#来定义，针对特定的一个标签来用
+							作为主键来使用，要求是唯一的
+							d,通用选择器:用*来定义
+	*/
+	/*
+	.lei{
+			border:8px solid blue
+	}
+	 div{
+		border: 1px solid red;
+	}
+	*/
+	*{  
+		padding:0px;
+		margin:100px;
+		color:yellow;
+	}
+	p{
+	   border:10px solid green;
+	}
+	
+	#only{
+			border:5px dashed orange;
+			color:red;
+	}
+	</style>
+	<!-- px表示边缘需要多少像素 dashed表示虚线  solid表示实线 
+	padding表示内容到边框之间的距离  margin表示边框到页面边缘的距离  
+	id="only"表示ID #
+	class="**"表示类 .   -->
+ </head>
+ <body>
+  <p>刘焕濠</p>
+  <h2  id="only">哈哈</h2>
+  <!-- <div class="lei">刘焕濠</div>
+  <p class="lei">刘焕濠</p> -->
+ </body>
+</html>

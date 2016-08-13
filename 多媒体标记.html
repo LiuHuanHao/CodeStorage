@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>多媒体标记</title>
+ </head>
+ <body>
+ <!--  
+ bgsound:背景音乐，loop:音乐播放次数
+ autostart:是否自动播放
+ embed:用于加载视频或音频
+ marquee:显示跳动的文字
+ direction:规定文字行进的方向
+ behavior:文字行进的方式
+ slide:进到一行后停止行走
+ alternate:撞到屏幕后返回
+ scroll:进入屏幕后从对面的边缘出来
+ -->
+	 <!-- <bgsound src="C:\Users\ASUS\Music\Guns N' Roses - Estranged.mp3"loop="3"></bgsound> -->
+
+		<!-- <embed src="E:\BaiduYunDownload\小甲鱼零基础入门学习Python(全87集)\00-42\017函数：Python的乐高积木.mp4"
+		 volume="100"  autostart="false" ></embed> -->
+		 <marquee direction="right" behavior="slide">我来啦</marquee>
+		 <marquee behavior="alternate" scrollamount="50" scrolldelay="1000">我来啦</marquee>
+		 <!-- scrollamount表示每次行进多少像素 loop表示重复来回几次
+		 scroll的loop结束后对象消失
+		 scrolldelay表示每行进一次暂停几毫秒
+		 可以通过设定长和宽设定其在特定区域滚动
+		 -->
+		 <marquee behavior="scroll" scrollamount="10" direction="up"
+		 width="300" height="300" bgcolor="##336699" loop="3">我来啦</marquee>
+ </body>
+</html>

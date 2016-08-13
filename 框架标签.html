@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>框架标签</title>
+ </head>
+	<!-- 由于框架有多个页面，所以不需要body
+	<frameset rows="300,*" >:将页面分为上200像素的两个页面,想要几层依次加一个逗号
+	<frame src="**">将各页面键入HTML网页
+	<frameset cols="100,*">将页面再另外分为左右两边
+	noresize:不能拖动边框
+	scrolling="no" 不能拖动滚动条
+	bordercolor:边框颜色
+	name:通过对框架进行命名来实现对特定框架的显示
+	有些事情不做以后再也不会做了
+	-->
+	<!--
+	<frameset rows="200,200,*" >
+			<frame src="超链接.html" noresize name="w1" bordercolor="red" >	</frame>
+			<frame src="对图片的超链.html" name="w2">	</frame>	
+				<frameset cols="100,200,200,*">
+					<frame src="对图片的超链.html" name="r1">	</frame>
+					<frame src="清单标签.html" name="r2" scrolling="no"></frame>
+					<frame src="字体标签.html" name="r3"></frame>
+					<frame src="表格标签.html"  name="r4"></frame>
+	</frameset>
+	-->
+  <!--  内嵌框架 (iframe)innerFrame 可以运用div将框架进行整体居中移动 链接用href关键词 -->
+  Hello<br>
+  <a target="iframe" href="表格标签.html">表格标签</a><br>
+  <a target="iframe" href="字体标签.html">字体标签</a><br>
+  <a target="iframe" href="超链接.html">超链接</a><br>
+  <div align="center">
+  <iframe src="" width="500" height="300" scrolling="yes" name="iframe">
+  </div>
+  </iframe>
+</html>
