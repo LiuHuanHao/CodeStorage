@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>扩展选择器</title> 
+	  <style type="text/css">
+				/*
+				   2,扩展选择器:
+							a,组合选择器:用逗号隔开多个选择器,实现多种选择器共享一个功能
+							b,关联选择器（后代选择器）:用空格隔开，表示在什么里面才执行要求
+							c,伪类选择器:
+										1,静态伪类:    :link, :visited,   只能用于超链接
+									    link表示连接之前的颜色，visited表示点击之后的颜色
+										2，动态伪类:适用于各种标签
+													:focus  空间获得焦点的时候   (如进入文本框时)
+													:active   点击控件的时候   (如点击文本时)
+													:hover    当鼠标移动到某个控件上方的时候  (如当鼠标移动到某个文本时)
+
+
+				*/
+				div,p,.lei,#key{
+				
+					border:5px double blue;
+				}
+				h2 b i{
+					
+					color:red;
+				}
+				a:link{
+					color:red;
+				}
+				a:visited{
+					color:yellow;
+				}
+				input:focus{ 
+				
+					border:1px solid purple;
+					color:red;
+					background-color:RGB(0,255,255);
+				}
+				p:active{
+					color:blue;
+				}
+				h1:hover{
+				
+					color:green;
+				}
+				table{
+				
+					border:4px solid orange;
+					width:300px;
+					height:300px;
+					border-collapse:collapse; 
+				/*  border-collapse表示边线是否重叠   */
+				}
+				table td{
+				
+					border:1px dashed red;
+				}
+				table td:hover{
+						
+						background-color:yellow;
+				}
+	  </style>
+  </head>
+  <body>
+     <div>刘焕濠</div>
+	 <p>你好</p>
+	 <h3 id="key">我爱你</h3>
+	 <h4 class="lei">林志玲</h4>
+	 <h2>广东海洋<b>大学<i>刘焕濠</i>大</b>二<h2>
+	 <i>广东</i>
+	 <a href="#">点击进入主页</a>
+     <input type="text" name="">
+	 <h1>你不是真正的快乐</h1>
+	<table>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+	    <td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+        <td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</table>
+  </body>
+  </html>
