@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>float，z-index，overflow属性</title>
+    <style  type="text/css">
+	div{
+		width:100px;
+		height:100px;
+		border:4px dashed green;
+	}
+	/*
+	float可以用于进行横放，可以选择右(right)或左(left)。
+	当用了float后，再次使用如果不用float时会覆盖加入的图像
+	使用clear后只是清除了效果，对其他类型的标签依然会有覆盖的影响
+	overflow:盒子内容超过范围应该怎么办
+	        1，auto:超出的内容可以拖动插件来阅读
+			2，visible:超越设置的长度依然向下显示内容，不美观
+			3，hidden:将超越长度的内容隐藏
+	z-index:相当于坐标的z轴，用于实现哪个被遮挡
+			z轴数值最大离我们最近
+	*/
+
+	#d1{
+		background-color:RGB(0,255,198);
+		
+	}
+	#d2{
+		
+		background-color:RGB(2,200,250);
+		overflow:auto;
+	}
+	#d3{
+    	background-color:RGB(50,50,233);
+		float:left;
+	}
+	#d4{
+		position:
+		background-color:RGB(120,80,200);
+		float:left;
+		}
+    div h1{
+			color:RGB(200,56,78);
+	}
+	span{
+		height:200px;
+		width:200px;
+		border:4px solid red;
+		background-image:url("forever.jpg");
+	}
+	#s1{
+		position:absolute;
+		left:100px;
+		top:100px;
+		z-index:4;
+	}
+	#s2{
+		position:absolute;
+		left:200px;
+		top:200px;
+		z-index:3;
+	}
+	</style>
+ </head>
+ <body>
+   <div id="d1">d1</div>
+  <div id="d2"><h1>d2</h1>
+  Let's try it again Let's try it againv Let's try it again Let's try it again Let's try it again Let's try it again Let's try it again Let's try it again 
+  We are the worldWe are the worldWe are the worldWe are the worldWe are the worldWe are the worldWe are the worldWe are the worldWe are the worldWe are the 
+  </div>
+  <div id="d3">d3</div>
+  <div id="d4">d4</div>
+  <!-- <span id="s1"></span>
+  <span id="s2"></span> -->
+ </body>
+</html>

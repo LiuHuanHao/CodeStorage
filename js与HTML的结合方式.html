@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <script type="text/javascript" src="d.css"></script>
+  <!-- 可通过此方法引进js文件，后缀为js，不为js也可以运行 -->
+  <title>js与HTML的结合方式</title>
+  <style>
+     .onclick{
+	 
+			cursor:pointer;
+	 }
+	 #p{
+	 
+		color:red;
+	 
+	 }
+  </style>
+ </head>
+  <script type="text/javascript">
+ <!--
+
+	//alert('haha');
+	var p=document.getElementById("p");
+	//此代码优先执行，所以get不到id，导致其运行出错，放在后面才不会出错
+	alert(p.onclick);
+ //在这里的注释行主要作用是不让js报错，依然执行	
+ //-->
+ </script>
+ <body>
+	<p onclick="alert('你要干嘛')" class="onclick" id="p">大家好</p>
+ </body>
+</html>
