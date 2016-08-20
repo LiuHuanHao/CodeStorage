@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script type="text/javascript">
+  <!--
+  /*
+	function isDigit(str)
+	{
+		var reg=/^\d*$/;
+		return reg.test(str);
+	}
+	var str="8153732821";
+	document.write(isDigit(str));
+	var str="test";
+	document.write(isDigit(str));
+	*/
+	/*
+	function testReg(reg,str)
+	{
+		return reg.test(str);
+	}
+	var reg=/^0*(13|15)\d{9}$/;
+	var str1='13889294444';
+	var str2='128929833333';
+	var str3='000000015989852345';
+	document.write(testReg(reg,str1)+'<br/>');
+	document.write(testReg(reg,str2)+'<br/>');
+	document.write(testReg(reg,str3)+'<br/>');
+	*/
+	/*
+	var str=" 蓝       色              梦            想";
+	var reg=/\s/;
+	str=str.replace(reg," ");
+	document.write(str);
+	*/
+	/*
+	var str="有中你不是文?and english.";
+	var reg=/[\u4E00-\u9FA5\uf900-\ufa2d]/g;
+	str=str.replace(reg,'哦');
+	document.write(str);
+	*/
+	/*
+	function cLength(str)
+	{
+		var reg=/[^\u4E00-\u9FA5\uf900-\ufa2d]/g;
+		var temp=str.replace(reg,'');
+		return temp.length;
+	}
+	var str="中文123";
+	document.write(str.length+'<br/>');
+	document.write(cLength(str));
+	*/
+	/*
+	function replaceReg(reg,str)
+	{
+			return str.replace(reg,'');
+	}
+	var reg=/\.\d{1,3}$/
+	var str1='192.168.118.101';
+	var str2='192.168.118.72';
+	var str3='192.168.118.1';
+	document.write(replaceReg(reg,str1)+'<br/>');
+	document.write(replaceReg(reg,str2)+'<br/>');
+	document.write(replaceReg(reg,str3)+'<br/>');
+	*/
+	/*
+	function getFileName(str)
+	{
+		var reg=/[^\\\/]*[\\\/]+/g;
+		str=str.replace(reg,'');
+		return str;
+	}
+	var str="c:\\images\\/tupian\\006.jpg";
+	document.write(getFileName(str)+'<br/>');
+	var str2="c://images//\tupian//\test2.jpg";
+	document.write(getFileName(str2));
+	*/
+	/*
+	var str='infomationmarket.phpid=197';
+	var reg=/\w+/g;
+	str=str.replace(reg,'test');
+	document.write(str);
+	*/
+	/*
+	var str="有中你不是文?and english.";
+	var reg=/[\u4E00-\u9FA5\uf900-\ufa2d]/g;
+	在这里后面加'g'是把每个中文字符变为'哦'
+	在里面加'+'则是把前面一整段中文变为'哦'
+	str=str.replace(reg,'哦');
+	document.write(str);
+	*/
+	/*
+	function cLength(str)
+	{
+		var reg=/[^\u4E00-\u9FA5\uf900-\ufa2d]/g;
+		//匹配非中文的正则表达式
+		var temp=str.replace(reg,'');
+		将非中文字符串替换为空字符
+		return temp.length;
+	}
+	var str="中文123";
+	document.write(str.length+'<br/>');
+	document.write(cLength(str));
+	输出中文字符串的长度
+	*/
+	/*
+	获取IP地址前三段只要匹配掉最后一段并且
+	替换为空字符串就可以了,正则如下:/\.\d{1,3}$/
+	*/
+	/*
+	function replaceReg(reg,str)
+	{
+		return str.replace(reg,'');
+	}
+	var reg=/\.\d{1,3}$/;
+	var str1='192.168.118.101';
+	var str2='192.168.118.72';
+	var str3='192.168.118.1';
+	document.write(replaceReg(reg,str1)+'<br/>');
+	document.write(replaceReg(reg,str2)+'<br/>');
+	document.write(replaceReg(reg,str3)+'<br/>');
+	*/
+	/*
+		可以用/<ul>[\s\S]+?<//ul>/i来匹配两侧
+		ul标签的内容，一定要用?非贪婪的方式
+		否则会导致其匹配到可能的下一个ul
+	*/
+	/*
+	var reg=/<ul>[\s\S]+<ul>/i;
+	var str='<ul>第一个<没显示><ul>第一个meixianshi<ul>sdf</ul>';
+	str=reg.exec(str);
+	document.write(str);
+	*/
+	/*
+			用正则获得文件名方式如下
+			/[^\\\/]*[\/\\]+/g
+	*/
+	/*
+	function getFileName(str)
+	{
+		var reg=/[^\\\/]*[\\\/]+/g;
+		//去掉XXX/或者是XXX\
+		//剩下的便是文件名
+		str=str.replace(reg,'');
+		return str;
+	}
+	var str="c:\\images\\tupian\\006.jpg";
+	document.write(getFileName(str)+'<br/>');
+	var str2="c:/images/tupian/test2.jpg";
+	document.write(getFileName(str2));
+	*/
+	/*
+		绝对路径变相对路径
+		/http:\/\/[^\/]+/首先是http://然后找过一个或多个非
+		/字符，因为遇到第一个/表示已经到了目录，停止匹配
+	*/
+	/*
+	var str='<IMG height="120" width="800" src="http://23.123.22.12/image/'+
+	'somepic.gif/>';
+	var reg=/http:\/\/[^\/]+/;
+	str=str.replace(reg,"");
+	alert(str);
+	*/
+	/*
+			用于用户名注册，只能用中文，英文，数字，下划线，4-16个字符
+			/^[\u4E00-\u9FA5\uf900-\ufa2d\w]{4,16}$/
+			实现4-16个字符的关键是开始^和结束$
+	*/
+	/*
+	function isEmail(str)
+	{
+		var reg=/^[\u4E00-\u9FA5\uf900-\ufa2d\w]{4,16}$/;
+		return reg.test(str);
+	}
+	var str1='超级无敌用户名regExp';
+	var str2='捣乱的@';
+	var str3='太短';
+	var str4='太长longlonglonglonglong';
+	document.write(isEmail(str1)+'<br/>');
+	document.write(isEmail(str2)+'<br/>');
+	document.write(isEmail(str3)+'<br/>');
+	document.write(isEmail(str4)+'<br/>');
+	*/
+  //-->
+  </script>
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

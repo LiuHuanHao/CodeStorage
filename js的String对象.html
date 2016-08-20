@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>String对象</title>
+ </head>
+ <script type="text/javascript">
+ <!--
+			/*
+					String对象的方法:
+								1. substr();截取字符串，第一个参数是截取的下标，第
+								二个是截取的个数
+								2. substring();截取子字符串，两个参数代表的是下标
+	
+			*/
+			function fun()
+			{
+				//1.拿到p标签对象
+				var p=document.getElementById("p");
+				//2.拿到p标签对象的主体内容
+				var txt=p.innerHTML;//innerHTML必须是有开始标签和
+				//结束标签的标签对象才能使用
+				//改变字体内容，再赋值回去
+				p.innerHTML=txt.big();//将字符串变大的函数
+			}
+			var arr=["red","blue","green","yellow","#666666"];
+			function fun1()
+			{
+				//实例:点击变变变1让p标签中的文本颜色随机变换
+				var p=document.getElementById("p");
+				//随机取得一个整数作为数组的下标
+				//Math.floor():取得小于或等于这个数的最大整数，向下取整
+				//Math.ceil():取得大于等于这个数的最小整数
+				//Math.random():生成介于0到1之间的数字
+				var index=Math.floor(Math.random()*arr.length); 
+				//var txt=p.innerHTML;
+				var txt=p.innerText;
+				//生成零到长度减一的数字
+				//给p标签对象的主题内容改变颜色并赋值回去
+				p.innerHTML=txt.fontcolor(arr[index]);
+				//alert(p.innerHTML);
+				setTimeout("fun1()",50);
+			}
+				function fun2()
+				{
+					var txt=document.getElementById("h1").innerHTML; //同时获得HTML的标签代码
+					//txt=document.getElementById("h1").innerText; //只获得标签里面的文本
+					alert(txt);
+				}
+				/*
+				var str="Free Web Tutorials!"
+				document.write(str.link("http://www.w3school.com.cn"))//将文字变成链接
+				*/
+				var s="ChinaRio";
+			//	alert(s.substring(2,5));
+			//	alert(s.substring(5,2));  //截取坐标可以允许倒置
+				alert(s.substring(200,-10));  //截取坐标可以允许超出范围
+				alert(s.substr(2,4));   //在这里第二个参数为截取的长度
+ //-->
+ </script>
+ <body>
+   <p id="p">大</p>
+  <input type="button" value="变变变" onclick="fun()">
+  <input type="button" value="变变变1" onclick="fun1()">
+  <h1 id="h1"><font>你好</font></h1>
+  <input type="button" value="演示innerHTML和innerText的区别" onclick="fun2()">
+ </body>
+</html>

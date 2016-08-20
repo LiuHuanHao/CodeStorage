@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script type="text/javascript">
+  <!--
+  /*
+  function execReg(reg,str)
+  {
+		var result=reg.exec(str);
+		alert(result);
+  }
+  var reg=/test/;
+  var str='testString';
+  execReg(reg,str);
+  */
+   /*
+  {1}表示一个的意思
+   /c{1}/只能匹配一个c
+   /c{n}/匹配n个连续的c
+  */
+  function execReg(reg,str)
+  {
+		var result=reg.exec(str);
+		alert(result);
+  }
+  /*
+  reg=/c{2}/;
+  str='ccVC??';
+  execReg(reg,str);
+   c{3,4}表示连续三个c或4个c
+  */
+  /*
+   reg=/c{3,4}/;
+   str='cccccVc??';
+   execReg(reg,str);
+   c{n,}表示n个以上的c
+   */
+   /*
+   reg=/c{2,}/;
+   str='cTest';
+   execReg(reg,str);
+   */
+   /*
+   c*和c{0,}一个意思
+   c+和c{1,}
+   c?和c{0,1}是一个意思!!!
+   希望正则尽量少地匹配字符，那么可以在数字
+   的符号后面加上一个?
+   {n,}?,*?.+?,{m,n}?
+   */
+   /*
+   reg=/c{1,}?/;
+   str='ccccccccr';
+   execReg(reg,str);
+   */
+	/*
+	^表示只匹配字符串的开头
+	$表示字符串结尾
+	*/
+	/*
+	reg=/^c/;
+	reg=/c$/;
+	str='c????c';
+	execReg(reg,str);
+	*/
+	/*
+	点.会匹配字符串中除了\n之外的所有字符
+
+	*/
+	/*
+	reg=/./;
+	str='China';
+	execReg(reg,str);
+	*/
+	/*
+	reg=/^./;
+	str='\nchina';第一个为换行，匹配失败
+	execReg(reg,str);
+	*/
+	/*
+	b|c表示匹配b或c
+	reg=/b|c/;
+	str='blueidea';
+	execReg(reg,str);
+	reg=/^b|c.+/;
+	str='cainiao';
+	execReg(reg,str);
+	*/
+	/*
+	reg=/^(b|c).+/;  子正则表达式会被记录下来
+	供后面使用
+	str='bbs.blueidea.com';
+	execReg(reg,str);
+	*/
+	/*	
+		[abc]表示a或者b或者c任意一个字符
+	*/
+	/*
+	reg=/^[abc]/;
+	str='s.blueidea.com';
+	execReg(reg,str);
+	*/
+	/*
+	reg=/^[a-zA-Z][a-zA-Z0-9_]+/;
+	str='e_____st';
+	execReg(reg,str);
+	*/
+	/*
+		[^abc]表示不能是a,b,c中任何一个
+	*/
+	/*
+	reg=/[^abc]/;  返回英文字母l因为它是第一个
+    非abc的字符
+	str='bclueidea';
+	execReg(reg,str);
+	*/
+	/*
+		\b表示边界的意思
+		/\bc/表示字符串开始的c或者结尾的c
+	*/
+	/*
+	reg=/\bC/;
+	str='China';
+	execReg(reg,str);
+	*/
+	/*
+	reg=/^b|c.+/;  匹配到c.+,匹配掉cainiao
+	str='cainiao';
+	execReg(reg,str);
+	*/
+	/*
+	reg=/^b|c.+/;
+	str='bbs.blueidea.com';
+	execReg(reg,str);
+	只匹配到b，上面正则表达式的意思是匹配b开头或者是c.+
+	*/
+	/*
+	reg=/\Bc/;
+	str='cainicao';
+	execReg(reg,str);
+	只匹配非边缘的c
+	
+	\d表示数字，\D表示非数字
+	*/
+	/*
+	reg=/\d/;
+	str='cainiao8';
+	execReg(reg,str);
+	\d返回8
+	reg=/\D/;
+	str='cainiao8';
+	\D返回非数字c
+	execReg(reg,str);
+	*/
+	/*
+		\n匹配回车符
+		\t匹配制表符
+		\s匹配单个空格
+	*/
+	/*
+	reg=/\s.+/;
+	str='This is a test String';
+	execReg(reg,str);
+	正则意思是匹配第一个空格以及其后的所有非换行字符
+	*/
+	/*
+	reg=/\S+/;
+	str='This is a test String';
+	execReg(reg,str);
+	匹配结果为this，当遇到一个空格之后，就停止匹配了
+	*/
+	/*
+		\w表示单词字符，等同于字符在集合[a-zA-Z0-9_]
+
+	*/
+	/*
+	reg=/\w+/;
+	str='.className';
+	execReg(reg,str);
+	匹配了className，只有一个.非单词字符没有匹配
+	*/
+	/*
+	reg=/\w+/;
+	str='?????';
+	execReg(reg,str);
+	无论是中文还是"?"都算是非单词字符
+	*/
+	/*
+	reg=/(\w)(\w)/;
+	str='bueidea';
+	execReg(reg,str);
+	返回bu,b,u
+	bu是整个正则内容，b是第一个括号子正则表达式匹配的内容
+	u是第二个括号匹配的内容
+	*/
+	/*
+  \1叫做反向引用，它表示第一个子正则表达式匹配的内容
+  */
+  /*
+  reg=/(\w)\1/;
+  str='bblueidea';
+  execReg(reg,str);
+  */
+  /*
+  reg=/(\w)(\w)\2\1/;
+  str='woow';
+  execReg(reg,str);
+  \2\1恰好表示ow，匹配成功
+  */
+  /*
+  reg=/^(b|c).+/;
+  str='bbs.blueidea.com';
+  execReg(reg,str);
+  匹配结果会保存到返回的结果中
+  */
+  /*
+  reg=/^(?:b|c).+/;
+  str='bbs.blueidea.com';
+  execReg(reg,str);
+  使用形如(?:pattern)可以避免保存括号内的匹配结果
+  */
+  /*
+  reg=/^(?:b|c)\1/;
+  str='bbs.blueidea.com';
+  execReg(reg,str);
+  返回结果为null，由于根本没有记录括号
+  内匹配的内容，自然没有办法引用
+  */
+  /*
+  reg=/cainiao(?=8)/;
+  str='cainiao8';
+  execReg(reg,str);
+  括号里面的内容并不参与匹配，只是检查一下后面的字符
+  是否符合要求而已，在这里cainiao匹配cainiao8只是返回cainiao而已
+  */
+  /*
+  reg=/blue(?=idea)/;
+  str='blueide';
+  execReg(reg,str);
+  尾单词不是idea，返回null
+  */
+  /*
+  reg=/blue(?!idea)/;
+  str='blueidea';
+  execReg(reg,str);
+  返回null，因为？！表示恰好不等于就返回true
+  */
+  /*
+	正则表达式都有一些特定意义的字符，类似这些特殊功能的字符叫做元字符
+	reg=\c*\;表示有任意个c，如果真想匹配c*这个字符串只要将*转移就可以了
+  */
+
+  //reg=/c\*/;
+  //str='c\*';
+  //execReg(reg,str);
+  //返回匹配的字符串c*，要匹配其他元字符，在前面加上'\'
+  //就可以了
+  /*
+  var reg=/b/;
+  var str='BBS';
+  execReg(reg,str);
+  返回null，因为大小写不符合
+  */
+  /*
+  var reg=/b/i;
+  var str='BBS';
+  execReg(reg,str);
+  匹配到B这个就是修饰符i的作用，忽略大小写的影响
+  */
+  /*
+  var reg=/^b/;
+  var str='test\nbbs';
+  execReg(reg,str);
+  匹配失败，因为字符串开头没有b字符
+  */
+  /*
+  var reg=/^b/m;
+  var str='test\nbbs';
+  execReg(reg,str);
+  匹配到b，因为加上m修饰符后，表示匹配行首和行尾，
+  ^已经表示行首，由于bbs在字符串第二行的行首，所以
+  匹配成功
+  */
+  function execReg(reg,str)
+  {
+		var result=reg.exec(str);
+		document.write('index:'+result.index+'<br/>'+'input:'+
+		result.input+'<br/>');
+		for(i=0;i<result.length;i++)
+	    {
+			document.write('result['+i+']:'+
+			result[i]+'<br/>');
+		}
+  }
+  /*
+	var reg=/\w/;
+	var str='bbs.blueidea.com';
+	execReg(reg,str);
+  */
+  /*
+   var reg=/(\w)(\w)(.+)/;
+   var str='bbs.blueidea.com';
+   execReg(reg,str);
+   返回对象[0]就是整个正则表达式所匹配的内容
+   后续元素则是各个子正则表达式所匹配的内容
+   */
+   /*
+   var reg=/b/g;
+   var str='bbs.blueidea.com';
+   execReg(reg,str);
+   execReg(reg,str);
+   设置g后执行后会更新lastindex属性，表示本次匹配后
+   下次会在本次索引再加一个字符单位
+   */
+   /*
+   var reg=/b/g;
+   var str='bbs.blueidea.com';
+   result=str.match(reg);
+   alert(result);
+   */
+   /*
+   在match里面，如果设置了g则不会匹配一次就停止，而是继续查找
+   所有匹配到的字符
+   str.replace(reg,'new str');
+   它的作用是将str字符串中匹配reg部分用‘new str’代替
+   原来的字符串不会被修改，而是作为返回值返回
+   */
+   /*
+   var reg=/b/;
+   var str='bbs.blueidea.com';
+   var newStr=str.replace(reg,'c');
+   document.write(newStr);
+   只有第一个b被替换为c
+   */
+   /*
+   var reg=/b/g;
+   var str='bbs.blueidea.com';
+   var newStr=str.replace(reg,'c');
+   document.write(newStr);
+   由于在这里设置了g修饰符，所以会替换掉所有的b
+   */
+   /*
+   var reg=/\w+/g;
+   var str='bbs.blueidea.com';
+   var newStr=str.replace(reg,'word');
+   document.write(newStr);
+   由于.不是单词字符，所有每个一个点就被替换为Word
+   在正则里我们可以用\1来引用第一个子正则表达式所匹配的内容
+   在replace函数里面也可以用$1引用相同的内容
+   */
+   /*
+   var reg=/(\w+).(\w+).(\w+)/;
+   var str='bbs.blueidea.com';
+   var newStr=str.replace(reg,'$1.$1.$1');
+   document.write(newStr);
+   第一个正则表达式匹配到了bbs，那么$1就代表bbs了
+   其后我们把替换字符设置为$1.$1.$1其实也就是三个bbs
+   */
+   /*
+   var reg=/(\w+)\s(\w+)/;
+   var str='cainiao gaoshou';
+   var newStr=str.replace(reg,'$2 $1');
+   document.write(newStr);
+   */
+   /*
+		由于替换字符里$有了特殊含义，所以我们要用$的话就要写$$
+
+   */
+   /*
+   var reg=/(\w+)\s(\w+)/;
+   var str='cainiao gaoshou';
+   var newStr=str.replace(reg,'$$ $$');
+   document.write(newStr);
+   */
+   /*
+   var reg=/idea/;
+   var str='blueidea';
+   var pos=str.search(reg);
+   document.write(pos);
+   search返回第一次匹配的位置
+   */
+   /*
+   var reg=/\W/;
+   var str='bbs.blueidea.com';
+   var pos=str.search(reg);
+   document.write(pos);
+   结果为3，也就是第一个非单词字符的位置
+   */
+   /*
+   var reg=/\W/;
+   var str='bbs.blueidea.com';
+   var arr=str.split(reg);
+   document.write(arr);
+   数组被非单词字符分为三个元素的数组
+   */
+   var reg=/\W/;
+   var str='http:wd/dwd/www.baidu.com/dwd';
+   var arr=str.split(reg);
+   document.write(arr.length+'<br/>');
+   document.write(arr);
+  </script>;
+ </body>
+</html>
