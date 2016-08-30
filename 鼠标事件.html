@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>鼠标事件</title>
+<style type="text/css">
+	div{
+		width:300px;
+		height:300px;
+		border:1px solid red;
+	}
+	.lei1
+	{
+		color:red;
+		border:6px solid green;
+		cursor:pointer;
+	}
+</style>
+ </head>
+ <script type="text/javascript">
+ <!--
+		function fun(e)
+		{
+			var x=e.clientX;
+			var y=e.clientY;
+			//显示在文本框中
+			var txt=document.getElementById("txt");
+			txt.value=x+":"+y;
+		}
+		function fun1()
+		{
+			//拿到p标签对象
+			var p=document.getElementById("p");
+			//定义p的样式
+			//p.style.color="red";
+			//p.style.border="2px dashed green";
+			p.className="lei1";
+			//用此方法调用css代码
+		}
+		function fun2()
+		{
+			var p=document.getElementById("p");
+			p.className="";
+			//表示鼠标出来之后设置为没有任何类选择器
+		}
+ //-->
+ </script>
+ <body>
+  	<!-- <img src="liu.jpg" name="mousetest" onmousemove="document.images['mousetest']
+    .src='forever.jpg'"> 
+	当鼠标在图片上移动时，更改加载图片路径
+   <p >When you move the mouse pointer over this paragraph, the image changes.</p> -->
+
+   <!-- <form name="testform" action="jsref_onsubmit.asp"
+  onsubmit="alert('Hello ' + testform.fname.value +'!')">
+  点击提交按钮弹出消息框，此处有未知知识form
+   What is your name?<br />
+  <input type="text" name="fname" />
+  <input type="submit" value="Submit" />   submit为提交按钮-->
+  
+  <!-- <input type="text" name="" id="txt">
+  <div onmousemove="fun(event)"></div> -->
+	
+ 
+ <p onmouseover="fun1()" onmouseout="fun2()" id="p">刘焕濠</p>
+</form>
+ </body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>键盘提交与重置事件</title>
+ </head>
+ <script type="text/javascript">
+ <!--
+	function fun(obj,e)
+	{
+		//传入事件和对象
+		var key=e.keyCode;
+		//显示阿斯卡码
+		obj.value=key;
+	}
+	function  check(form)
+	{
+		//拿到文本框
+		var txt=form.username.value;
+		//form.username为姓名里面name的username，起到索引的作用
+		//判断内容
+		if(txt=="")
+		{
+			document.getElementById("sname").innerHTML="<font color=red>*姓名必须填写</font>";
+			form.username.focus();
+			//重新定住焦点
+			return false;
+		}
+		return true;
+		//return true表示转回到提交页面，false表示不转回提交页面，用户可能填写不对
+	}
+	function fun1(form)
+		{
+			alert("重置事件");
+			//return false;
+			//当return false时不会发生重置事件
+			return true;
+		}
+ //-->
+ </script>
+ <body>
+  <!-- <input type="text" name="" onkeypress="fun(this,event)" > --> <!-- onkeydown onkeyup -->
+  <!-- onkeypress按下并松开 onkeydown按下不放 
+  id是唯一的，name可以重复   onsubmit要写在表单那里 
+  onreset表示当事件重置时				-->
+ <form method="post" action="鼠标的单击事件.html" onsubmit="return check(this)" onreset="return fun1(this)">
+ 姓名:<input type="text" name="username"><span id="sname"></span><br>
+ <input type="submit" value="提交">
+ <input type="reset" value="重置">
+ </form>
+ </body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document对象</title>
+ </head>
+ <script type="text/javascript">
+ <!--
+	function fun()
+	{
+			document.all[10].innerHTML="你好";
+			//对所有HTML元素的访问，缺点是需要考虑下标
+			document.forms[1].username.value="刘焕濠";
+			//0下标表示第一个元素
+			//对表单元素的访问
+			document.images[2].src="forever.jpg";
+			//对图片元素的访问
+			//图片中alt属性表示当图片无法时显示文字
+	}
+ //-->
+ </script>
+ <body onload="fun()">
+  <p></p>
+<form method="post" action="">
+	姓名1:<input type="text" name="">
+</form>
+<form method="post" action="">
+	姓名2:<input type="text" name="username">
+</form>
+<form method="post" action="">
+	姓名3:<input type="text" name="">
+</form>
+<img src="" alt="aa">
+<img src="" alt="bb">
+<img src="" alt="cc">
+ </body>
+</html>

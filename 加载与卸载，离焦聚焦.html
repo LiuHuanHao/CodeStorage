@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>加载与卸载,聚焦离焦</title>
+ </head>
+ <script type="text/javascript">
+/*
+  function fun()
+  {
+	alert("你好");
+  }
+  function fun1()
+  {
+	alert("你不好");
+  }
+  function fun2()
+  {
+	alert("我悄悄的走了");
+  }
+  */
+  function fun(obj)
+  {
+	obj.style.border="1px solid red";
+	obj.style.backgroundColor="RGB(20,250,222)";
+	obj.style.color="green";
+  }
+  function fun1(obj)
+  {
+		if(obj.value=="")
+	  {
+		alert("内容不能为空");
+		//obj.focus();  获得焦点
+	  }
+  }
+ </script>
+ <body>  <!-- onload="fun(),fun1()" onunload="fun2()"> -->
+ <!-- onload事件可以调用多个函数，可以在body或
+ image标签里面，p标签不能，函数紧接着onunload不需要加逗号-->
+  aaaaaaaaaaaaaaaaaa
+  <!-- <input type="text" name="" onfocus="fun(this)" onblur="fun1(this)"> -->
+  <!-- onblur表示离开焦点 onfocus表示移入焦点 -->
+  <input type="text" value="Hello world!"
+  onselect="alert('You have selected some of the text.')" />
+  <!-- onselect表示文本被选中时的状态 -->
+ </body>
+</html>

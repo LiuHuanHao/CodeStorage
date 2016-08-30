@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>省市联动</title>
+ </head>
+ <script type="text/javascript">
+ <!--
+	var arr=["中国","美国","日本"];
+	arr["中国"]=["北京","上海","钓鱼岛"];
+	arr["美国"]=["纽约","华盛顿","旧金山"];
+	arr["日本"]=["东京","大阪","神户"];
+
+	arr["北京"]=["海淀","朝阳","昌平"];
+	arr["上海"]=["浦东","金山","崇明"];
+	arr["钓鱼岛"]=["钓鱼东","钓鱼西","钓鱼南"];
+
+	arr["纽约"]=["钮1","钮2","钮3"];
+	arr["华盛顿"]=["华1","华2","华3"];
+	arr["旧金山"]=["旧1","旧2","旧3"];
+
+	arr["东京"]=["东1","东2","东3"];
+	arr["大阪"]=["大1","大2","大3"];
+	arr["神户"]=["神1","神2","神3"];
+
+	function init()
+	{
+		/*
+		//填充国家
+		for(var i=0;i<arr.length;i++)
+		{
+			//创建option对象
+			//第一种
+			var option=new Option();
+			option.text=arr[i];
+			option.value=arr[i];
+			//将option对象添加到国家select中
+			document.getElementById("country").options.add(option);
+		}
+		//填充省市
+		for(var i=0;i<arr[arr[0]].length;i++)
+		{
+			//创建option对象
+			//第一种
+			var option=new Option();
+			option.text=arr[arr[0]][i];
+			option.value=arr[arr[0]][i];
+			//将option对象添加到省市select中
+			document.getElementById("province").options.add(option);
+		}
+		//填充地区
+		for(var i=0;i<arr[arr[arr[0]][0]].length;i++)
+		{
+			//创建option对象
+			//第一种
+			var option=new Option();
+			option.text=arr[arr[arr[0]][0]][i];
+			option.value=arr[arr[arr[0]][0]][i];
+			//将option对象添加到地区select中
+			document.getElementById("area").options.add(option);
+			//将option添加到选择框中
+		}
+		*/
+		/************ 可以进行以下代码优化  ****************/
+		fillData(arr,"country");
+		fillData(arr[arr[0]],"province");
+		fillData(arr[arr[arr[0]][0]],"area");
+	
+	}
+	function fillData(arr,id)
+	{
+		//清空省市选项
+		document.getElementById(id).options.length=0;
+			for(var i=0;i<arr.length;i++)
+		{
+			//创建option对象
+			//第一种
+			/*
+			var option=new Option();
+			option.text=arr[i];
+			option.value=arr[i];
+			*/
+			//第二种方法
+			var option=new Option(arr[i],arr[i]);
+			//在这里利用了构造函数的特点，两个参数分别传入text和value
+			//将option对象添加到select中
+			document.getElementById(id).options.add(option);
+		}
+	}
+	function  changeCoun(coun)
+	{
+		//添加省市
+		fillData(arr[coun],"province");
+		//添加地区
+		fillData(arr[arr[coun][0]],"area")
+	}
+	function changePro(pro)
+	{
+		fillData(arr[pro],"area");
+		//在这里arr[pro]相当于arr[arr[0]][i]
+	}
+ //-->
+ </script>
+ <body onload="init()">
+  国家:<select id="country" onchange="changeCoun(this.value)"></select>
+  省市:<select id="province" onchange="changePro(this.value)"></select>
+  地区:<select id="area"></select>
+ </body>
+</html>

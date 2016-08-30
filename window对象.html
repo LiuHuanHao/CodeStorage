@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Windows对象</title>
+ </head>
+ <script type="text/javascript">
+			/*
+					window对象的属性:
+							1.innerHeight:返回文档显示区的高度
+							2.innerWidth:返回文档显示区的宽度  IE不支持
+							3.outerheight:包括了工具栏的高度
+							4.outerwidth:包括滚动条的宽度
+			*/
+			/*
+			function init()
+			{
+				var x=window.document.body.outerwidth;
+				var y=window.document.body.outerheight;
+				alert(x+':'+y);
+			}
+			*/
+			/*
+				opener:代表父窗口对象，必须要求两个窗口必须要有父子关系
+						1.超链接（设置target属性为_blank）
+						2.window.open()打开的窗口
+	 ********************************************************************************
+			function fun()
+	        {
+			//将子窗口中的文本框中的数据传递到父窗口中的文本框中显示
+			//1.拿到文本框中填写的数据
+			var v=document.getElementById("txt").value;
+			//2.拿到父窗口对象
+			var w=window.opener;//(parent)在框架或内嵌框架中使用
+			//3.拿到父窗口的文本框对象
+			var txt=w.document.getElementById("txt");
+			//4.将内容复制给父窗口中的文本框对象的value属性
+			txt.value=v;
+			}
+            <input type="text" name="" id="txt">
+            <input type="button" value="传递子窗口的值到父窗口中的文本框" 
+            onclick="fun()">
+				/*
+			function fun()
+			{
+				window.open("try.HTML")					
+			
+			}
+  *************************************************************************************
+			parent:也是代表父窗口
+					1.框架中
+					2.内嵌框架
+			*/
+			function fun()
+	  {
+			//frames[]子窗口对象
+			//将父窗口中的文本框中的数据传递到子窗口中的文本框中显示
+			//1.拿到文本框中填写的数据
+			var v=document.getElementById("txt").value;
+			//2.拿到子窗口对象
+			var w=window.frames[0];//frames.length表示子窗口的元素个数
+			//3.拿到子窗口的文本框对象
+			var txt=w.document.getElementById("txt");
+			//4.将内容复制给子窗口中的文本框对象的value属性
+			txt.value=v;
+	  }
+	
+ //-->
+ </script>
+ <body> <!-- onload="init()" -->
+  <!-- <p>你好</p>
+  <p>刘焕濠不错</p> -->
+  <!-- <input type="text" name="" id="txt" >
+  <!-- <input type="button" value="打开子窗口" onclick="fun()"> -->
+  <!-- <a href="try.html" target="_blank">打开超链子窗口</a> -->
+  <!-- 超链必须为_blank方式打开才生效 -->
+  姓名:<input type="text" name="" id="txt">
+  <input type="button" value="将父窗口数据传递到子窗口" onclick="fun()">
+  <iframe src="try.html"></iframe>
+ </body>
+</html>

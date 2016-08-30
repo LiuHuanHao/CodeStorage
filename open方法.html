@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>open方法和计时器</title>
+ </head>
+  <script>
+    /*
+	
+		/*
+		window.open("try.html","","status=1,titlebar=1,menubar=1,toolbar=1,resizable=1,location=1,channelmode=0,scrollbar=1,fullscreen=0",false)
+		/*
+		myWindow=window.open('','','width=200,height=100')
+		myWindow.document.write("This is 'myWindow'")
+		myWindow.focus()
+		*/
+		/*
+			计时器:
+					1.setTimeout:隔一段时间调用某个函数(只调用一次)
+					2.setInterval:每隔一段时间调用某个函数(多次调用)
+
+		*/
+		var t,t1;
+		function fun1()
+		{
+			//拿到p标签的主体内容
+			var p=document.getElementById("p");
+			var v=p.innerHTML;
+			//将主体内容转换为number，转换后赋值回去
+			p.innerHTML=v*1-1;
+			t=setTimeout("fun1()",1000);
+			//每执行一次产生一块表并在下一次执行之前消失
+		}
+		function fun2()
+		{
+			//拿到p标签的主体内容
+			var p=document.getElementById("p");
+			var v=p.innerHTML;
+			//将主体内容转换为number，转换后赋值回去
+			p.innerHTML=v*1-1;
+			//setInterval会在这里产生很多表，且不会消失
+			//导致时间变化增快
+		}
+		function checkTime()
+		{
+			t1=setInterval("fun2()",1000); //产生不会消失的表
+		}
+		/*
+			clearTimeout():销毁由setTimeout产生的手表
+			clearInterval():销毁由setInterval产生的手表
+
+		*/
+		function clear1()
+		{
+				clearTimeout(t);
+		}
+		function clear2()
+		{
+			clearInterval(t1);
+		}
+  </script>
+ <body>
+  <!-- <input type="button" value="打开try.html页面" onclick="fun()"> -->
+  <p id="p">10</p><br>
+  <input type="button" value="演示setTimeout方法" onclick="fun1()">
+ <input type="button" value="演示setInterval方法" onclick="checkTime()"> 
+ <input type="button" value="演示clearTimeout方法" onclick="clear1()">
+ <input type="button" value="演示clearInterval方法" onclick="clear2()">
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>选择与改变事件</title>
+ </head>
+ <script type="text/javascript">
+ <!--
+	function fun(obj)
+	{
+		alert(obj.value);
+	}
+	function fun1(obj)
+	{
+		alert(obj);
+	}
+	function fun2(v,index)
+	{
+		alert(v+":"+index);
+	}
+ //-->
+ </script>
+ <body>
+  <input type="text" name="" onselect="fun(this)" onchange="fun1(this.value)">
+  <!-- onchange表示当文本框内容改变且鼠标不在焦点的时候 -->
+  <select onchange="fun2(this.value,this.selectedIndex)">
+	<!-- selectIndex表示下拉框内容所表示的索引位置，比如在这里中国为零，美国为1 -->
+	<option value="China">中国</option>
+	<option value="America">美国</option>
+	<option value="UK">英国</option>
+  </select>
+ </body>
+</html>

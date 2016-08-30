@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>history对象和模态窗体和location</title>
+ </head>
+
+	<script type="text/javascript">
+	<!--
+		 /*
+			模态窗体:必须关闭打开的窗体才能使用其他的窗体
+			以下是两种实现方法
+		 */
+		//window.showModalDialog("你好");
+		//window.showModelessDialog("你好");
+		/*
+			history对象存储了访问过的页面
+			只有访问过才可以实现前进或后退
+		*/
+		/*
+		function fun()
+		{
+			history.forward();
+			history.back();
+			history.go(1);(这里可以存储正数或负数)
+		
+		}*/
+		function fun()
+		{
+			//window.location.href="try/try.html";
+			window.location="try/try.html";
+		}
+		function fun1()
+		{
+			//reload表示重新加载页面
+			window.location.reload();
+		}
+	//-->
+	</script>
+
+ <body>
+
+	<h1>刘焕濠</h1>
+  <!-- aaaaaaaaaaa
+  <a href="try.html">try.html</a>
+  <input type="button" value="前进" onclick="fun()"> -->
+  <input type="button" value="直接去另一个文件夹的try.html" onclick="fun()">
+  <input type="button" value="重新加载本页面" onclick="fun1()">
+ </body>
+</html>
