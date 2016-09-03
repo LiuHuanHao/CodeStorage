@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>下拉选项的移动</title>
+ </head>
+ <script type="text/javascript">
+ <!--
+ /*
+	function removeLeft()
+	{
+		//此方法用于单项移动
+		//拿到左边下拉框的对象
+		var leftSel=document.getElementById("left");
+		//拿到右边的下拉框对象
+		var rightSel=document.getElementById("right");
+		//拿到左边下拉框选项选中的option
+		var op=leftSel.options[leftSel.selectedIndex];
+		//selectedIndex表示选中的下拉框下标，单词加ed
+		//将选中的选项添加到右边下拉框中
+		//rightSel.options.add(op);
+		rightSel.appendChild(op);
+	}
+	*/
+	function removeLeft()
+	{
+		//此方法用于多项
+		//拿到左边下拉框的对象
+		var leftSel=document.getElementById("left");
+		var leftOps=document.getElementById("left").options;
+		//拿到右边的下拉框对象
+		var rightSel=document.getElementById("right");
+		//拿到左边下拉框选项选中的option
+		for(var i=0;i<leftOps.length;i++)
+		{
+			if(leftOps[i].selected)
+			{
+				rightSel.appendChild(leftOps[i]);
+				 i--;
+				 //对于长度会改变的数组可以用i--
+				 //selected为option的一种属性
+			}
+		}
+	}
+
+	function removeLeftAll()
+	{
+			//拿到左边下拉框的对象
+		var leftSel=document.getElementById("left");
+		//拿到右边的下拉框对象
+		var rightSel=document.getElementById("right");
+		//循环添加
+		//var length=leftSel.options.length;
+		for(var i=0;i<leftSel.options.length;i++)
+		{
+			rightSel.appendChild(leftSel.options[i]);
+			//rightSel.appendChild(leftSel.options[0]);
+			i--;
+			//移动过程option长度发生了变化，有错误！！！！！
+			//需要将length单独拿出来,也可以用i--
+		}
+	}
+ //-->
+ </script>
+ <body>
+  <table align="center">
+		<tr>
+		   <td>
+			<select size="10" id="left" multiple>
+			<!-- size规定下拉框最多可以显示多少个
+			     multiple表示可以进行多选    -->
+				<option>选项1</option>
+				<option>选项2</option>
+				<option>选项3</option>
+				<option>选项4</option>
+				<option>选项5</option>
+				<option>选项6</option>
+				<option>选项7</option>
+				<option>选项8</option>
+			</select>
+		   </td>
+		   <td>
+				<input type="button" value="--->" onclick="removeLeft()"></br>
+				<input type="button" value="===>" onclick="removeLeftAll()"></br>
+				<input type="button" value="<---" onclick=""></br>
+				<input type="button" value="<===" onclick=""></br>
+		   </td>
+		   <td>
+				<select size="10" id="right">
+					<option>选项9</option>
+				</select>
+		   </td>
+		</tr>
+ </body>
+</html>
