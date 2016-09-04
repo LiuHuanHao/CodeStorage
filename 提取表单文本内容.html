@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <ul>
+		<li id="bj" value="beijing">
+			北京
+			<h1>海淀</h1>
+			<h2>卢沟桥</h2>
+		</li>
+		<li>
+		上海
+		</li>
+		<input type="button" value="li取值" onclick="getLi()">
+  </ul>
+  <script type="text/javascript">
+  <!--
+	function getLi()
+	{
+		var li=document.getElementById("bj");
+		var childs=li.childNodes;
+		for(var i=0;i<childs.length;i++)
+		{
+			if(childs[i].nodeType==1)
+			{
+				alert(childs[i].firstChild.nodeValue);
+			}
+			else if(childs[i].nodeType==3)
+			{
+			alert("这是文本:"+childs[i].nodeValue);
+			}
+		}
+	}
+  //-->
+  </script>
+ </body>
+</html>

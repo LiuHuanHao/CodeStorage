@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>添加表格行</title>
+ </head>
+ <style type="text/css">
+ </style>
+ <script type="text/javascript">
+ <!--
+	function addtr()
+	{
+		//拿到填写的信息
+		var name=document.getElementById("name").value;
+		var email=document.getElementById("email").value;
+		var age=document.getElementById("age").value;
+		//创建一个行及4个单元格
+		var tr=document.createElement("tr");
+		//创建四个单元格并赋值
+		var nameTd=document.createElement("td");
+		nameTd.innerHTML=name;
+		var emailTd=document.createElement("td");
+		emailTd.innerHTML=email;
+		var ageTd=document.createElement("td");
+		ageTd.innerHTML=age;
+		var btnTd=document.createElement("td");
+		btnTd.innerHTML="<button onclick='delTr(this)'>删除</button>";
+		//组合各个组件
+		tr.appendChild(nameTd);
+		tr.appendChild(emailTd);
+		tr.appendChild(ageTd);
+		tr.appendChild(btnTd);
+		//拿到第二个表格对象
+		var table=document.getElementsByTagName("table")[1];
+		//将创建的新行添加到tBody里面,需要进行一次firstchild
+		table.firstChild.nextSibling.appendChild(tr);
+	}
+	function delTr(obj)
+	{
+		//alert(obj);
+		//obj传递的是按钮对象
+		//删掉行，采用removeChild()
+		//父亲tBody干掉儿子(tr)
+		//拿到曾爷爷
+		var tBody=obj.parentNode.parentNode.parentNode;
+		//alert(tBody.nodeName);
+		//拿到爷爷
+		var tr=obj.parentNode.parentNode;
+		//alert(tr.nodeName);
+		//曾爷爷干掉爷爷
+		tBody.removeChild(tr);
+		//removeChild表示去除儿子
+	}
+ //-->
+ </script>
+ <body>
+  <table width=600 height=100 align=center>
+	<tr>
+		<th>姓名</th>
+		<td><input type="text" name="" id="name"></th>
+		<th>邮箱</th>
+		<th><input type="text" name="" id="email"></th>
+		<th>年龄</th>
+		<th><input type="text" name="" id="age"></th>
+	</tr>
+	<tr>
+		<td align="center" colspan="6"><input type="button" value="添加" onclick="addtr()"></td>
+	</tr>
+ </table>
+ </tr>
+ <br>
+ <br>
+ <br>
+ <br>
+ <hr>
+ <table width="500" border="1" bgcolor="##00ffcc" align="center" cellpadding="40">
+	<tr>
+		<th>姓名</th>
+		<th>邮箱</th>
+		<th>年龄</th>
+		<th>操作</th>
+	</tr>
+ </table>
+ </body>
+</html>
